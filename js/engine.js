@@ -137,6 +137,18 @@ var Engine = (function(global) {
         }
 
         renderEntities();
+        
+        ctx.font="30px Arial";
+        ctx.drawImage(Resources.get('images/small_heart.png'), 20, 553);
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 4;
+        ctx.strokeText('x', 60, 575);
+        ctx.strokeText(player.lives, 90, 575);
+        ctx.strokeText('Level : ' + player.level, 380, 575);
+        ctx.fillStyle = 'black';
+        ctx.fillText('x', 60, 575);
+        ctx.fillText(player.lives, 90, 575);
+        ctx.fillText('Level : ' + player.level, 380, 575);
     }
 
     /* This function is called by the render function and is called on each game
@@ -171,7 +183,13 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png',
+        'images/small_heart.png'
+
     ]);
     Resources.onReady(init);
 
