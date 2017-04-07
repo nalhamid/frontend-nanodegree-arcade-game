@@ -17,3 +17,4 @@ the game build with JavaScript
 
 ## Enjoy!
 
+![Screen Shot](images/Screen_Shot.png)
