@@ -108,12 +108,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 3 of stone
+                'images/stone-block.png', // Row 2 of 3 of stone
+                'images/stone-block.png', // Row 3 of 3 of stone
+                'images/grass-block.png', // Row 1 of 2 of grass
+                'images/grass-block.png' // Row 2 of 2 of grass
             ],
             numRows = 6,
             numCols = 5,
@@ -137,8 +137,9 @@ var Engine = (function(global) {
         }
 
         renderEntities();
-        
-        ctx.font="30px Arial";
+
+        //print lives and level
+        ctx.font = "30px Arial";
         ctx.drawImage(Resources.get('images/small_heart.png'), 20, 553);
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 4;
@@ -149,6 +150,11 @@ var Engine = (function(global) {
         ctx.fillText('x', 60, 575);
         ctx.fillText(player.lives, 90, 575);
         ctx.fillText('Level : ' + player.level, 380, 575);
+        // print small instruction 
+        ctx.font = "18px Arial";
+        ctx.strokeText('press "c" to change charecter', 125, 570);
+        ctx.fillText('press "c" to change charecter', 125, 570);
+
     }
 
     /* This function is called by the render function and is called on each game

@@ -15,7 +15,15 @@ var enemiesRows = [60, 145, 230];
 var maxSpeed = 300;
 var minSpeed = 50;
 
-
+//charecters array and key
+var charIndex = 0;
+var characters = [
+    'images/char-boy.png',
+    'images/char-cat-girl.png',
+    'images/char-horn-girl.png',
+    'images/char-pink-girl.png',
+    'images/char-princess-girl.png'
+];
 /**************  Common Functions *************/
 
 //random integer between max and min
@@ -70,7 +78,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= player.x - 60 && this.x < player.x + 60 && this.y >= player.y && this.y < player.y + 50) {
 
         //reduce player lives 
-        player.lives -= 1;
+        player.lives--;
 
         //check if there is no more lives to alert user
         if (player.lives === 0) {
@@ -108,7 +116,7 @@ var Player = function() {
     this.y = (rowHeight * 5) - (rowHeight / 2);
 
     // set player image
-    this.sprite = 'images/char-boy.png';
+    this.sprite = characters[charIndex];
 
     // set player life
     this.lives = 3;
@@ -124,7 +132,7 @@ Player.prototype.update = function() {
         this.reset();
 
         //increase level 
-        this.level += 1;
+        this.level++;
 
         //alert user of wining
         alert("level Up!");
@@ -179,6 +187,17 @@ Player.prototype.handleInput = function(key) {
             }
             this.x += colWidth;
             break;
+
+            //case c key for charecter change
+        case 'c':
+            charIndex++;
+            //keep in array
+            if (charIndex == characters.length) {
+                charIndex = 0;
+            }
+            this.sprite = characters[charIndex];
+            console.log(characters[charIndex]);
+            break;
     }
 };
 
@@ -205,7 +224,8 @@ document.addEventListener('keyup', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        67: 'c'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);

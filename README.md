@@ -13,6 +13,7 @@ the game build with JavaScript
 * press the arrows in your keyboard to move the player and reach the water. 
 * You have 3 lives
 * Number of enemies increase with level
+* press "c" to change charecter
 
 ## Enjoy!
 
